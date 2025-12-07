@@ -1,0 +1,397 @@
+// ForeverStory Database Schema
+// German-market story preservation platform
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ============================================
+// USER & AUTHENTICATION
+// ============================================
+
+enum UserRole {
+  GIFT_GIVER
+  STORY_AUTHOR
+  READER
+  ADMIN
+}
+
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  emailVerified DateTime?
+  passwordHash  String?
+  firstName     String?
+  lastName      String?
+  role          UserRole  @default(GIFT_GIVER)
+  locale        String    @default("de")
+  
+  // Stripe
+  stripeCustomerId String? @unique
+  
+  // Timestamps
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  // Relations
+  subscriptionsGiven    Subscription[]  @relation("GiftGiver")
+  storiesAuthored       Story[]         @relation("StoryAuthor")
+  familyMemberships     FamilyMember[]
+  sessions              Session[]
+  
+  @@map("users")
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  userId       String
+  token        String   @unique
+  expiresAt    DateTime
+  createdAt    DateTime @default(now())
+  
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  @@map("sessions")
+}
+
+// ============================================
+// SUBSCRIPTIONS & PAYMENTS
+// ============================================
+
+enum SubscriptionPlan {
+  STARTER      // 3 months, basic
+  STANDARD     // 6 months, with book
+  PREMIUM      // 12 months, premium book + extras
+}
+
+enum SubscriptionStatus {
+  PENDING      // Gift purchased, not yet activated
+  ACTIVE       // Author has started
+  PAUSED       // Author paused
+  COMPLETED    // All questions answered or time expired
+  CANCELLED    // Cancelled/refunded
+}
+
+model Subscription {
+  id                String             @id @default(cuid())
+  
+  // Gift giver (purchaser)
+  giftGiverId       String
+  giftGiver         User               @relation("GiftGiver", fields: [giftGiverId], references: [id])
+  
+  // Story author (recipient) - may be null until activated
+  storyAuthorId     String?
+  storyAuthorEmail  String             // Email where invitation was sent
+  
+  // Plan details
+  plan              SubscriptionPlan
+  status            SubscriptionStatus @default(PENDING)
+  
+  // Dates
+  purchasedAt       DateTime           @default(now())
+  activatedAt       DateTime?          // When author first logged in
+  startDate         DateTime?          // When questions started
+  endDate           DateTime?          // Subscription end
+  
+  // Stripe
+  stripeSubscriptionId  String?        @unique
+  stripePaymentIntentId String?
+  
+  // Customization
+  giftMessage       String?            @db.Text
+  customQuestions   Json?              // Array of custom questions from gift giver
+  
+  // Settings
+  questionFrequency String             @default("weekly") // weekly, biweekly
+  preferredDay      Int                @default(1) // 1=Monday, 7=Sunday
+  
+  createdAt         DateTime           @default(now())
+  updatedAt         DateTime           @updatedAt
+  
+  // Relations
+  stories           Story[]
+  questions         QuestionDelivery[]
+  familyMembers     FamilyMember[]
+  books             Book[]
+  
+  @@map("subscriptions")
+}
+
+// ============================================
+// QUESTIONS & STORIES
+// ============================================
+
+enum QuestionCategory {
+  CHILDHOOD
+  EDUCATION
+  CAREER
+  FAMILY
+  RELATIONSHIPS
+  WAR_POSTWAR
+  DDR
+  REUNIFICATION
+  TRADITIONS
+  LIFE_LESSONS
+  CUSTOM
+}
+
+enum QuestionRegion {
+  ALL           // Universal questions
+  WEST_GERMANY  // BRD specific
+  EAST_GERMANY  // DDR specific
+  AUSTRIA
+  SWITZERLAND
+}
+
+model Question {
+  id          String           @id @default(cuid())
+  
+  // Content
+  textDe      String           @db.Text
+  textEn      String?          @db.Text
+  
+  // Classification
+  category    QuestionCategory
+  region      QuestionRegion   @default(ALL)
+  
+  // Ordering & availability
+  sortOrder   Int              @default(0)
+  isActive    Boolean          @default(true)
+  
+  // Metadata
+  createdAt   DateTime         @default(now())
+  updatedAt   DateTime         @updatedAt
+  
+  // Relations
+  deliveries  QuestionDelivery[]
+  stories     Story[]
+  
+  @@map("questions")
+}
+
+model QuestionDelivery {
+  id              String       @id @default(cuid())
+  subscriptionId  String
+  questionId      String
+  
+  // Delivery tracking
+  deliveredAt     DateTime     @default(now())
+  viewedAt        DateTime?
+  answeredAt      DateTime?
+  skippedAt       DateTime?
+  
+  // Relations
+  subscription    Subscription @relation(fields: [subscriptionId], references: [id], onDelete: Cascade)
+  question        Question     @relation(fields: [questionId], references: [id])
+  
+  @@unique([subscriptionId, questionId])
+  @@map("question_deliveries")
+}
+
+enum StoryStatus {
+  DRAFT
+  SUBMITTED
+  EDITED
+  APPROVED
+}
+
+model Story {
+  id            String      @id @default(cuid())
+  
+  // Author
+  authorId      String
+  author        User        @relation("StoryAuthor", fields: [authorId], references: [id])
+  
+  // Context
+  subscriptionId String
+  subscription   Subscription @relation(fields: [subscriptionId], references: [id], onDelete: Cascade)
+  
+  questionId    String?
+  question      Question?   @relation(fields: [questionId], references: [id])
+  
+  // Content
+  title         String?
+  content       String      @db.Text
+  contentHtml   String?     @db.Text  // Formatted version for book
+  
+  // Voice recording
+  audioUrl      String?
+  audioDuration Int?        // Duration in seconds
+  transcription String?     @db.Text
+  
+  // Photos
+  photos        StoryPhoto[]
+  
+  // Status
+  status        StoryStatus @default(DRAFT)
+  wordCount     Int         @default(0)
+  
+  // Timestamps
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+  submittedAt   DateTime?
+  
+  @@map("stories")
+}
+
+model StoryPhoto {
+  id          String   @id @default(cuid())
+  storyId     String
+  story       Story    @relation(fields: [storyId], references: [id], onDelete: Cascade)
+  
+  // Storage
+  url         String
+  thumbnailUrl String?
+  
+  // Metadata
+  caption     String?
+  sortOrder   Int      @default(0)
+  width       Int?
+  height      Int?
+  sizeBytes   Int?
+  
+  createdAt   DateTime @default(now())
+  
+  @@map("story_photos")
+}
+
+// ============================================
+// FAMILY SHARING
+// ============================================
+
+enum FamilyRole {
+  OWNER       // The story author
+  EDITOR      // Can help edit stories
+  READER      // Can only read
+}
+
+model FamilyMember {
+  id              String       @id @default(cuid())
+  subscriptionId  String
+  subscription    Subscription @relation(fields: [subscriptionId], references: [id], onDelete: Cascade)
+  
+  // Member info
+  userId          String?      // Null until they accept invite
+  user            User?        @relation(fields: [userId], references: [id])
+  email           String
+  name            String?
+  role            FamilyRole   @default(READER)
+  
+  // Invitation tracking
+  invitedAt       DateTime     @default(now())
+  inviteToken     String?      @unique
+  acceptedAt      DateTime?
+  
+  @@unique([subscriptionId, email])
+  @@map("family_members")
+}
+
+// ============================================
+// BOOK PRINTING
+// ============================================
+
+enum BookStatus {
+  DRAFT           // Still being compiled
+  PREVIEW_READY   // PDF preview generated
+  ORDERED         // Sent to printer
+  PRINTING        // In production
+  SHIPPED         // On the way
+  DELIVERED       // Confirmed delivery
+  CANCELLED
+}
+
+enum BookFormat {
+  HARDCOVER_STANDARD  // 6x9"
+  HARDCOVER_PREMIUM   // 8x10" with dust jacket
+  SOFTCOVER           // 6x9" paperback
+}
+
+model Book {
+  id              String       @id @default(cuid())
+  subscriptionId  String
+  subscription    Subscription @relation(fields: [subscriptionId], references: [id])
+  
+  // Book details
+  title           String       @default("Meine Lebensgeschichte")
+  subtitle        String?
+  format          BookFormat   @default(HARDCOVER_STANDARD)
+  pageCount       Int?
+  
+  // Status
+  status          BookStatus   @default(DRAFT)
+  
+  // Files
+  previewPdfUrl   String?
+  printPdfUrl     String?
+  coverImageUrl   String?
+  
+  // Printing
+  printPartnerId  String?      // CEWE order ID
+  printedAt       DateTime?
+  
+  // Shipping
+  shippingAddress Json?
+  trackingNumber  String?
+  shippedAt       DateTime?
+  deliveredAt     DateTime?
+  
+  // Pricing
+  basePriceCents  Int?
+  shippingCents   Int?
+  totalCents      Int?
+  
+  createdAt       DateTime     @default(now())
+  updatedAt       DateTime     @updatedAt
+  
+  @@map("books")
+}
+
+// ============================================
+// AUDIT & GDPR
+// ============================================
+
+model AuditLog {
+  id          String   @id @default(cuid())
+  userId      String?
+  action      String   // e.g., "story.create", "data.export", "account.delete"
+  entityType  String?  // e.g., "Story", "User"
+  entityId    String?
+  metadata    Json?
+  ipAddress   String?
+  userAgent   String?
+  createdAt   DateTime @default(now())
+  
+  @@index([userId])
+  @@index([action])
+  @@index([createdAt])
+  @@map("audit_logs")
+}
+
+model ConsentRecord {
+  id          String   @id @default(cuid())
+  userId      String
+  consentType String   // e.g., "terms", "privacy", "marketing", "data_processing"
+  version     String   // Version of the document consented to
+  granted     Boolean
+  ipAddress   String?
+  createdAt   DateTime @default(now())
+  
+  @@index([userId])
+  @@map("consent_records")
+}
+
+model DataExportRequest {
+  id          String    @id @default(cuid())
+  userId      String
+  status      String    @default("pending") // pending, processing, ready, expired
+  downloadUrl String?
+  expiresAt   DateTime?
+  createdAt   DateTime  @default(now())
+  completedAt DateTime?
+  
+  @@map("data_export_requests")
+}

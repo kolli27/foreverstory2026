@@ -1,0 +1,376 @@
+{
+  "common": {
+    "loading": "Wird geladen...",
+    "error": "Ein Fehler ist aufgetreten",
+    "save": "Speichern",
+    "cancel": "Abbrechen",
+    "delete": "Löschen",
+    "edit": "Bearbeiten",
+    "submit": "Absenden",
+    "back": "Zurück",
+    "next": "Weiter",
+    "close": "Schließen",
+    "yes": "Ja",
+    "no": "Nein",
+    "search": "Suchen",
+    "filter": "Filtern",
+    "sort": "Sortieren",
+    "required": "Pflichtfeld",
+    "optional": "Optional"
+  },
+  
+  "nav": {
+    "home": "Startseite",
+    "dashboard": "Übersicht",
+    "stories": "Geschichten",
+    "questions": "Fragen",
+    "book": "Buch",
+    "family": "Familie",
+    "settings": "Einstellungen",
+    "help": "Hilfe",
+    "logout": "Abmelden"
+  },
+  
+  "auth": {
+    "login": "Anmelden",
+    "register": "Registrieren",
+    "logout": "Abmelden",
+    "email": "E-Mail-Adresse",
+    "password": "Passwort",
+    "confirmPassword": "Passwort bestätigen",
+    "forgotPassword": "Passwort vergessen?",
+    "resetPassword": "Passwort zurücksetzen",
+    "firstName": "Vorname",
+    "lastName": "Nachname",
+    "createAccount": "Konto erstellen",
+    "alreadyHaveAccount": "Sie haben bereits ein Konto?",
+    "noAccount": "Sie haben noch kein Konto?",
+    "loginError": "Anmeldung fehlgeschlagen. Bitte überprüfen Sie Ihre Eingaben.",
+    "registerError": "Registrierung fehlgeschlagen. Bitte versuchen Sie es erneut.",
+    "emailInvalid": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+    "passwordTooShort": "Das Passwort muss mindestens 8 Zeichen lang sein.",
+    "passwordsNoMatch": "Die Passwörter stimmen nicht überein."
+  },
+  
+  "landing": {
+    "hero": {
+      "title": "Bewahren Sie die Geschichten, die am wichtigsten sind",
+      "subtitle": "Bevor sie für immer verloren gehen",
+      "description": "ForeverStory hilft Ihren Liebsten, ihre Lebensgeschichte zu erzählen – eine Frage nach der anderen. Das perfekte Geschenk für Eltern und Großeltern.",
+      "cta": "Jetzt verschenken",
+      "secondary": "Mehr erfahren"
+    },
+    "howItWorks": {
+      "title": "So funktioniert es",
+      "step1": {
+        "title": "Verschenken Sie ForeverStory",
+        "description": "Wählen Sie ein Paket und personalisieren Sie Ihr Geschenk mit einer persönlichen Nachricht."
+      },
+      "step2": {
+        "title": "Wöchentliche Fragen",
+        "description": "Ihr Familienmitglied erhält jede Woche eine liebevoll ausgewählte Frage per E-Mail."
+      },
+      "step3": {
+        "title": "Geschichten aufnehmen",
+        "description": "Die Antworten können geschrieben oder als Sprachnachricht aufgenommen werden."
+      },
+      "step4": {
+        "title": "Gedrucktes Buch",
+        "description": "Am Ende wird ein wunderschönes, gebundenes Buch mit allen Geschichten erstellt."
+      }
+    },
+    "pricing": {
+      "title": "Wählen Sie das passende Paket",
+      "starter": {
+        "name": "Starter",
+        "duration": "3 Monate",
+        "description": "Ideal zum Kennenlernen"
+      },
+      "standard": {
+        "name": "Standard",
+        "duration": "6 Monate",
+        "description": "Unser beliebtestes Paket",
+        "popular": "Beliebt"
+      },
+      "premium": {
+        "name": "Premium",
+        "duration": "12 Monate",
+        "description": "Die vollständige Lebensgeschichte"
+      },
+      "perMonth": "pro Monat",
+      "includes": "Enthält",
+      "selectPlan": "Paket wählen"
+    },
+    "features": {
+      "weeklyQuestions": "Wöchentliche Fragen",
+      "voiceRecording": "Sprachaufnahme",
+      "photoUpload": "Fotos hinzufügen",
+      "familySharing": "Mit Familie teilen",
+      "printedBook": "Gedrucktes Buch",
+      "premiumBook": "Premium-Buch mit Schutzumschlag"
+    },
+    "testimonials": {
+      "title": "Was unsere Kunden sagen"
+    },
+    "faq": {
+      "title": "Häufig gestellte Fragen"
+    }
+  },
+  
+  "gift": {
+    "title": "ForeverStory verschenken",
+    "recipient": {
+      "title": "An wen möchten Sie verschenken?",
+      "email": "E-Mail-Adresse des Empfängers",
+      "name": "Name des Empfängers",
+      "emailHelp": "Hierhin wird die Einladung gesendet"
+    },
+    "plan": {
+      "title": "Welches Paket möchten Sie verschenken?"
+    },
+    "personalize": {
+      "title": "Personalisieren Sie Ihr Geschenk",
+      "message": "Persönliche Nachricht",
+      "messagePlaceholder": "Schreiben Sie eine persönliche Nachricht an den Empfänger...",
+      "customQuestions": "Eigene Fragen hinzufügen",
+      "customQuestionsHelp": "Fügen Sie bis zu 5 eigene Fragen hinzu, die Sie gerne beantwortet haben möchten",
+      "addQuestion": "Frage hinzufügen"
+    },
+    "delivery": {
+      "title": "Wann soll das Geschenk zugestellt werden?",
+      "now": "Sofort",
+      "schedule": "Datum wählen",
+      "dateHelp": "Der Empfänger erhält an diesem Tag eine E-Mail-Einladung"
+    },
+    "summary": {
+      "title": "Zusammenfassung",
+      "recipient": "Empfänger",
+      "plan": "Paket",
+      "delivery": "Zustellung",
+      "total": "Gesamtsumme"
+    },
+    "payment": {
+      "title": "Zahlungsmethode",
+      "secure": "Sichere Zahlung mit SSL-Verschlüsselung"
+    },
+    "success": {
+      "title": "Vielen Dank für Ihr Geschenk!",
+      "description": "Der Empfänger wird per E-Mail benachrichtigt.",
+      "trackOrder": "Geschenk verfolgen"
+    }
+  },
+  
+  "dashboard": {
+    "welcome": "Willkommen zurück",
+    "welcomeFirstTime": "Willkommen bei ForeverStory",
+    "currentQuestion": "Ihre aktuelle Frage",
+    "progress": {
+      "title": "Ihr Fortschritt",
+      "storiesWritten": "Geschichten geschrieben",
+      "questionsAnswered": "Fragen beantwortet",
+      "daysRemaining": "Tage verbleibend",
+      "bookProgress": "Buchfortschritt"
+    },
+    "recentStories": "Neueste Geschichten",
+    "viewAll": "Alle anzeigen",
+    "startWriting": "Jetzt schreiben",
+    "continueWriting": "Weiterschreiben",
+    "recordVoice": "Sprachaufnahme"
+  },
+  
+  "stories": {
+    "title": "Ihre Geschichten",
+    "empty": "Sie haben noch keine Geschichten geschrieben",
+    "emptyHint": "Beantworten Sie Ihre erste Frage, um zu beginnen",
+    "new": "Neue Geschichte",
+    "edit": "Geschichte bearbeiten",
+    "delete": "Geschichte löschen",
+    "deleteConfirm": "Möchten Sie diese Geschichte wirklich löschen?",
+    "status": {
+      "draft": "Entwurf",
+      "submitted": "Eingereicht",
+      "edited": "Bearbeitet",
+      "approved": "Freigegeben"
+    },
+    "wordCount": "{count} Wörter",
+    "lastEdited": "Zuletzt bearbeitet",
+    "addPhoto": "Foto hinzufügen",
+    "removePhoto": "Foto entfernen",
+    "photoCaption": "Bildunterschrift",
+    "saveAsDraft": "Als Entwurf speichern",
+    "submitStory": "Geschichte absenden",
+    "successSaved": "Geschichte gespeichert",
+    "successSubmitted": "Geschichte eingereicht"
+  },
+  
+  "questions": {
+    "title": "Fragen",
+    "current": "Aktuelle Frage",
+    "upcoming": "Kommende Fragen",
+    "answered": "Beantwortet",
+    "skipped": "Übersprungen",
+    "skip": "Frage überspringen",
+    "skipConfirm": "Möchten Sie diese Frage wirklich überspringen? Sie können sie später noch beantworten.",
+    "answerNow": "Jetzt beantworten",
+    "nextQuestion": "Nächste Frage am",
+    "categories": {
+      "childhood": "Kindheit",
+      "education": "Ausbildung",
+      "career": "Beruf",
+      "family": "Familie",
+      "relationships": "Beziehungen",
+      "warPostwar": "Krieg und Nachkriegszeit",
+      "ddr": "DDR-Erinnerungen",
+      "reunification": "Wiedervereinigung",
+      "traditions": "Traditionen",
+      "lifeLessons": "Lebensweisheiten",
+      "custom": "Persönliche Fragen"
+    }
+  },
+  
+  "voice": {
+    "startRecording": "Aufnahme starten",
+    "stopRecording": "Aufnahme beenden",
+    "recording": "Aufnahme läuft...",
+    "processing": "Wird verarbeitet...",
+    "playback": "Anhören",
+    "pause": "Pause",
+    "delete": "Aufnahme löschen",
+    "deleteConfirm": "Möchten Sie diese Aufnahme wirklich löschen?",
+    "duration": "Dauer",
+    "transcription": "Transkription",
+    "editTranscription": "Transkription bearbeiten",
+    "tip": "Tipp: Sprechen Sie langsam und deutlich für die beste Transkription",
+    "permissionDenied": "Bitte erlauben Sie den Zugriff auf Ihr Mikrofon",
+    "browserNotSupported": "Ihr Browser unterstützt keine Sprachaufnahmen"
+  },
+  
+  "book": {
+    "title": "Ihr Buch",
+    "preview": "Vorschau anzeigen",
+    "generating": "Vorschau wird erstellt...",
+    "previewReady": "Vorschau bereit",
+    "downloadPreview": "Vorschau herunterladen",
+    "order": "Buch bestellen",
+    "orderMore": "Weitere Exemplare bestellen",
+    "status": {
+      "draft": "In Bearbeitung",
+      "previewReady": "Vorschau verfügbar",
+      "ordered": "Bestellt",
+      "printing": "Wird gedruckt",
+      "shipped": "Versendet",
+      "delivered": "Zugestellt"
+    },
+    "format": {
+      "title": "Buchformat wählen",
+      "hardcoverStandard": "Hardcover Standard",
+      "hardcoverPremium": "Hardcover Premium",
+      "softcover": "Softcover"
+    },
+    "shipping": {
+      "title": "Lieferadresse",
+      "name": "Name",
+      "street": "Straße und Hausnummer",
+      "city": "Stadt",
+      "postalCode": "Postleitzahl",
+      "country": "Land"
+    },
+    "summary": {
+      "stories": "Geschichten",
+      "pages": "Seiten",
+      "photos": "Fotos",
+      "bookPrice": "Buchpreis",
+      "shipping": "Versand",
+      "total": "Gesamtsumme"
+    },
+    "orderSuccess": "Ihre Bestellung wurde aufgegeben!",
+    "trackingInfo": "Sie erhalten eine E-Mail mit der Sendungsverfolgung, sobald Ihr Buch versendet wurde."
+  },
+  
+  "family": {
+    "title": "Familie & Teilen",
+    "members": "Familienmitglieder",
+    "invite": "Einladen",
+    "inviteMember": "Familienmitglied einladen",
+    "email": "E-Mail-Adresse",
+    "name": "Name",
+    "role": "Berechtigung",
+    "roles": {
+      "owner": "Autor",
+      "editor": "Bearbeiter",
+      "reader": "Leser"
+    },
+    "rolesHelp": {
+      "editor": "Kann Geschichten lesen und bearbeiten",
+      "reader": "Kann nur Geschichten lesen"
+    },
+    "status": {
+      "pending": "Einladung ausstehend",
+      "accepted": "Aktiv"
+    },
+    "remove": "Entfernen",
+    "removeConfirm": "Möchten Sie dieses Familienmitglied wirklich entfernen?",
+    "inviteSuccess": "Einladung wurde gesendet",
+    "inviteError": "Einladung konnte nicht gesendet werden"
+  },
+  
+  "settings": {
+    "title": "Einstellungen",
+    "profile": {
+      "title": "Profil",
+      "email": "E-Mail-Adresse",
+      "name": "Name",
+      "save": "Profil speichern"
+    },
+    "notifications": {
+      "title": "Benachrichtigungen",
+      "emailReminders": "E-Mail-Erinnerungen",
+      "weeklyDigest": "Wöchentliche Zusammenfassung",
+      "familyActivity": "Familienaktivität"
+    },
+    "subscription": {
+      "title": "Abonnement",
+      "plan": "Aktuelles Paket",
+      "status": "Status",
+      "endDate": "Läuft bis",
+      "upgrade": "Upgrade"
+    },
+    "privacy": {
+      "title": "Datenschutz",
+      "exportData": "Meine Daten exportieren",
+      "exportDescription": "Laden Sie eine Kopie aller Ihrer Daten herunter",
+      "deleteAccount": "Konto löschen",
+      "deleteWarning": "Diese Aktion kann nicht rückgängig gemacht werden. Alle Ihre Daten werden unwiderruflich gelöscht."
+    },
+    "language": {
+      "title": "Sprache",
+      "german": "Deutsch",
+      "english": "English"
+    }
+  },
+  
+  "errors": {
+    "generic": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.",
+    "notFound": "Seite nicht gefunden",
+    "unauthorized": "Sie müssen angemeldet sein, um diese Seite zu sehen.",
+    "forbidden": "Sie haben keine Berechtigung für diese Aktion.",
+    "validation": "Bitte überprüfen Sie Ihre Eingaben.",
+    "network": "Verbindungsfehler. Bitte überprüfen Sie Ihre Internetverbindung.",
+    "serverError": "Serverfehler. Bitte versuchen Sie es später erneut."
+  },
+  
+  "footer": {
+    "about": "Über uns",
+    "contact": "Kontakt",
+    "help": "Hilfe",
+    "privacy": "Datenschutz",
+    "terms": "AGB",
+    "imprint": "Impressum",
+    "copyright": "© {year} ForeverStory. Alle Rechte vorbehalten."
+  },
+  
+  "meta": {
+    "title": "ForeverStory – Lebensgeschichten für die Ewigkeit",
+    "description": "Bewahren Sie die Geschichten Ihrer Liebsten. ForeverStory hilft Familien, Erinnerungen festzuhalten – eine Frage nach der anderen."
+  }
+}

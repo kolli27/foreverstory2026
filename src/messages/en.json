@@ -1,0 +1,376 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "submit": "Submit",
+    "back": "Back",
+    "next": "Next",
+    "close": "Close",
+    "yes": "Yes",
+    "no": "No",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "required": "Required",
+    "optional": "Optional"
+  },
+  
+  "nav": {
+    "home": "Home",
+    "dashboard": "Dashboard",
+    "stories": "Stories",
+    "questions": "Questions",
+    "book": "Book",
+    "family": "Family",
+    "settings": "Settings",
+    "help": "Help",
+    "logout": "Log out"
+  },
+  
+  "auth": {
+    "login": "Log in",
+    "register": "Sign up",
+    "logout": "Log out",
+    "email": "Email address",
+    "password": "Password",
+    "confirmPassword": "Confirm password",
+    "forgotPassword": "Forgot password?",
+    "resetPassword": "Reset password",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "createAccount": "Create account",
+    "alreadyHaveAccount": "Already have an account?",
+    "noAccount": "Don't have an account?",
+    "loginError": "Login failed. Please check your credentials.",
+    "registerError": "Registration failed. Please try again.",
+    "emailInvalid": "Please enter a valid email address.",
+    "passwordTooShort": "Password must be at least 8 characters.",
+    "passwordsNoMatch": "Passwords do not match."
+  },
+  
+  "landing": {
+    "hero": {
+      "title": "Preserve the stories that matter most",
+      "subtitle": "Before they're lost forever",
+      "description": "ForeverStory helps your loved ones tell their life story — one question at a time. The perfect gift for parents and grandparents.",
+      "cta": "Give as a gift",
+      "secondary": "Learn more"
+    },
+    "howItWorks": {
+      "title": "How it works",
+      "step1": {
+        "title": "Give ForeverStory as a gift",
+        "description": "Choose a plan and personalize your gift with a personal message."
+      },
+      "step2": {
+        "title": "Weekly questions",
+        "description": "Your family member receives a thoughtfully curated question each week via email."
+      },
+      "step3": {
+        "title": "Record stories",
+        "description": "Answers can be written or recorded as voice messages."
+      },
+      "step4": {
+        "title": "Printed book",
+        "description": "At the end, a beautiful hardbound book with all the stories is created."
+      }
+    },
+    "pricing": {
+      "title": "Choose the right plan",
+      "starter": {
+        "name": "Starter",
+        "duration": "3 months",
+        "description": "Perfect for trying it out"
+      },
+      "standard": {
+        "name": "Standard",
+        "duration": "6 months",
+        "description": "Our most popular plan",
+        "popular": "Popular"
+      },
+      "premium": {
+        "name": "Premium",
+        "duration": "12 months",
+        "description": "The complete life story"
+      },
+      "perMonth": "per month",
+      "includes": "Includes",
+      "selectPlan": "Select plan"
+    },
+    "features": {
+      "weeklyQuestions": "Weekly questions",
+      "voiceRecording": "Voice recording",
+      "photoUpload": "Add photos",
+      "familySharing": "Share with family",
+      "printedBook": "Printed book",
+      "premiumBook": "Premium book with dust jacket"
+    },
+    "testimonials": {
+      "title": "What our customers say"
+    },
+    "faq": {
+      "title": "Frequently asked questions"
+    }
+  },
+  
+  "gift": {
+    "title": "Give ForeverStory as a gift",
+    "recipient": {
+      "title": "Who would you like to gift?",
+      "email": "Recipient's email address",
+      "name": "Recipient's name",
+      "emailHelp": "The invitation will be sent here"
+    },
+    "plan": {
+      "title": "Which plan would you like to gift?"
+    },
+    "personalize": {
+      "title": "Personalize your gift",
+      "message": "Personal message",
+      "messagePlaceholder": "Write a personal message to the recipient...",
+      "customQuestions": "Add custom questions",
+      "customQuestionsHelp": "Add up to 5 custom questions you'd like answered",
+      "addQuestion": "Add question"
+    },
+    "delivery": {
+      "title": "When should the gift be delivered?",
+      "now": "Immediately",
+      "schedule": "Choose date",
+      "dateHelp": "The recipient will receive an email invitation on this day"
+    },
+    "summary": {
+      "title": "Summary",
+      "recipient": "Recipient",
+      "plan": "Plan",
+      "delivery": "Delivery",
+      "total": "Total"
+    },
+    "payment": {
+      "title": "Payment method",
+      "secure": "Secure payment with SSL encryption"
+    },
+    "success": {
+      "title": "Thank you for your gift!",
+      "description": "The recipient will be notified via email.",
+      "trackOrder": "Track gift"
+    }
+  },
+  
+  "dashboard": {
+    "welcome": "Welcome back",
+    "welcomeFirstTime": "Welcome to ForeverStory",
+    "currentQuestion": "Your current question",
+    "progress": {
+      "title": "Your progress",
+      "storiesWritten": "Stories written",
+      "questionsAnswered": "Questions answered",
+      "daysRemaining": "Days remaining",
+      "bookProgress": "Book progress"
+    },
+    "recentStories": "Recent stories",
+    "viewAll": "View all",
+    "startWriting": "Start writing",
+    "continueWriting": "Continue writing",
+    "recordVoice": "Record voice"
+  },
+  
+  "stories": {
+    "title": "Your stories",
+    "empty": "You haven't written any stories yet",
+    "emptyHint": "Answer your first question to get started",
+    "new": "New story",
+    "edit": "Edit story",
+    "delete": "Delete story",
+    "deleteConfirm": "Are you sure you want to delete this story?",
+    "status": {
+      "draft": "Draft",
+      "submitted": "Submitted",
+      "edited": "Edited",
+      "approved": "Approved"
+    },
+    "wordCount": "{count} words",
+    "lastEdited": "Last edited",
+    "addPhoto": "Add photo",
+    "removePhoto": "Remove photo",
+    "photoCaption": "Caption",
+    "saveAsDraft": "Save as draft",
+    "submitStory": "Submit story",
+    "successSaved": "Story saved",
+    "successSubmitted": "Story submitted"
+  },
+  
+  "questions": {
+    "title": "Questions",
+    "current": "Current question",
+    "upcoming": "Upcoming questions",
+    "answered": "Answered",
+    "skipped": "Skipped",
+    "skip": "Skip question",
+    "skipConfirm": "Are you sure you want to skip this question? You can still answer it later.",
+    "answerNow": "Answer now",
+    "nextQuestion": "Next question on",
+    "categories": {
+      "childhood": "Childhood",
+      "education": "Education",
+      "career": "Career",
+      "family": "Family",
+      "relationships": "Relationships",
+      "warPostwar": "War and post-war period",
+      "ddr": "GDR memories",
+      "reunification": "Reunification",
+      "traditions": "Traditions",
+      "lifeLessons": "Life lessons",
+      "custom": "Personal questions"
+    }
+  },
+  
+  "voice": {
+    "startRecording": "Start recording",
+    "stopRecording": "Stop recording",
+    "recording": "Recording...",
+    "processing": "Processing...",
+    "playback": "Listen",
+    "pause": "Pause",
+    "delete": "Delete recording",
+    "deleteConfirm": "Are you sure you want to delete this recording?",
+    "duration": "Duration",
+    "transcription": "Transcription",
+    "editTranscription": "Edit transcription",
+    "tip": "Tip: Speak slowly and clearly for the best transcription",
+    "permissionDenied": "Please allow access to your microphone",
+    "browserNotSupported": "Your browser does not support voice recording"
+  },
+  
+  "book": {
+    "title": "Your book",
+    "preview": "View preview",
+    "generating": "Generating preview...",
+    "previewReady": "Preview ready",
+    "downloadPreview": "Download preview",
+    "order": "Order book",
+    "orderMore": "Order more copies",
+    "status": {
+      "draft": "In progress",
+      "previewReady": "Preview available",
+      "ordered": "Ordered",
+      "printing": "Printing",
+      "shipped": "Shipped",
+      "delivered": "Delivered"
+    },
+    "format": {
+      "title": "Choose book format",
+      "hardcoverStandard": "Hardcover Standard",
+      "hardcoverPremium": "Hardcover Premium",
+      "softcover": "Softcover"
+    },
+    "shipping": {
+      "title": "Shipping address",
+      "name": "Name",
+      "street": "Street address",
+      "city": "City",
+      "postalCode": "Postal code",
+      "country": "Country"
+    },
+    "summary": {
+      "stories": "Stories",
+      "pages": "Pages",
+      "photos": "Photos",
+      "bookPrice": "Book price",
+      "shipping": "Shipping",
+      "total": "Total"
+    },
+    "orderSuccess": "Your order has been placed!",
+    "trackingInfo": "You will receive an email with tracking information once your book has been shipped."
+  },
+  
+  "family": {
+    "title": "Family & Sharing",
+    "members": "Family members",
+    "invite": "Invite",
+    "inviteMember": "Invite family member",
+    "email": "Email address",
+    "name": "Name",
+    "role": "Permission",
+    "roles": {
+      "owner": "Author",
+      "editor": "Editor",
+      "reader": "Reader"
+    },
+    "rolesHelp": {
+      "editor": "Can read and edit stories",
+      "reader": "Can only read stories"
+    },
+    "status": {
+      "pending": "Invitation pending",
+      "accepted": "Active"
+    },
+    "remove": "Remove",
+    "removeConfirm": "Are you sure you want to remove this family member?",
+    "inviteSuccess": "Invitation sent",
+    "inviteError": "Could not send invitation"
+  },
+  
+  "settings": {
+    "title": "Settings",
+    "profile": {
+      "title": "Profile",
+      "email": "Email address",
+      "name": "Name",
+      "save": "Save profile"
+    },
+    "notifications": {
+      "title": "Notifications",
+      "emailReminders": "Email reminders",
+      "weeklyDigest": "Weekly digest",
+      "familyActivity": "Family activity"
+    },
+    "subscription": {
+      "title": "Subscription",
+      "plan": "Current plan",
+      "status": "Status",
+      "endDate": "Valid until",
+      "upgrade": "Upgrade"
+    },
+    "privacy": {
+      "title": "Privacy",
+      "exportData": "Export my data",
+      "exportDescription": "Download a copy of all your data",
+      "deleteAccount": "Delete account",
+      "deleteWarning": "This action cannot be undone. All your data will be permanently deleted."
+    },
+    "language": {
+      "title": "Language",
+      "german": "Deutsch",
+      "english": "English"
+    }
+  },
+  
+  "errors": {
+    "generic": "An error occurred. Please try again.",
+    "notFound": "Page not found",
+    "unauthorized": "You must be logged in to view this page.",
+    "forbidden": "You don't have permission for this action.",
+    "validation": "Please check your input.",
+    "network": "Connection error. Please check your internet connection.",
+    "serverError": "Server error. Please try again later."
+  },
+  
+  "footer": {
+    "about": "About",
+    "contact": "Contact",
+    "help": "Help",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "imprint": "Imprint",
+    "copyright": "© {year} ForeverStory. All rights reserved."
+  },
+  
+  "meta": {
+    "title": "ForeverStory – Life Stories for Eternity",
+    "description": "Preserve your loved ones' stories. ForeverStory helps families capture memories — one question at a time."
+  }
+}
