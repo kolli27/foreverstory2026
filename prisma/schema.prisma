@@ -7,6 +7,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
 // ============================================
@@ -219,10 +220,16 @@ model Story {
   contentHtml   String?     @db.Text  // Formatted version for book
   
   // Voice recording
-  audioUrl      String?
-  audioDuration Int?        // Duration in seconds
-  transcription String?     @db.Text
-  
+  audioUrl                String?
+  audioDuration           Int?        // Duration in seconds
+  transcription           String?     @db.Text
+  transcriptionConfidence Float?      // 0.0 to 1.0
+  transcriptionService    String?     // 'gladia' or 'google'
+  transcribedAt           DateTime?
+
+  // Input method
+  inputMode               String      @default("text") // 'text' or 'voice'
+
   // Photos
   photos        StoryPhoto[]
   
@@ -242,20 +249,21 @@ model StoryPhoto {
   id          String   @id @default(cuid())
   storyId     String
   story       Story    @relation(fields: [storyId], references: [id], onDelete: Cascade)
-  
+
   // Storage
-  url         String
+  url         String      // Web version (1920px)
+  printUrl    String?     // Print version (3000px, 300+ DPI)
   thumbnailUrl String?
-  
+
   // Metadata
   caption     String?
   sortOrder   Int      @default(0)
   width       Int?
   height      Int?
   sizeBytes   Int?
-  
+
   createdAt   DateTime @default(now())
-  
+
   @@map("story_photos")
 }
 
