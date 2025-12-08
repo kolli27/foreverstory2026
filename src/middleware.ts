@@ -75,7 +75,9 @@ export default auth(async function middleware(request: NextRequest) {
       );
     }
 
-    if (session.user.role !== 'ADMIN') {
+    // Check role (with fallback for edge runtime)
+    const userRole = session?.user?.role;
+    if (userRole !== 'ADMIN') {
       // Redirect to unauthorized page
       return NextResponse.redirect(new URL('/unauthorized', request.url));
     }
