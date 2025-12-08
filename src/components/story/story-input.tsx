@@ -192,6 +192,7 @@ export function StoryInput({
               onTextChange={handleTranscriptionTextChange}
               onSubmit={handleTranscriptionSubmit}
               onReRecord={handleReRecord}
+              storyId={currentStoryId}
             />
           )}
 

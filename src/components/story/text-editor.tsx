@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { SaveDraftButton } from './save-draft-button';
 import { SubmitButton } from './submit-button';
+import { PhotoSection } from './photo-section';
 
 interface TextEditorProps {
   questionId: string;
@@ -146,6 +147,11 @@ export function TextEditor({
             })}
           </span>
         )}
+      </div>
+
+      {/* Photo upload section */}
+      <div className="border-t-2 border-gray-100 pt-6">
+        <PhotoSection storyId={storyId} />
       </div>
 
       {/* Action buttons */}

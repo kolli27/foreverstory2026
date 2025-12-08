@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { PhotoSection } from '@/components/story/photo-section';
 
 interface TranscriptionEditorProps {
   transcribedText: string;
@@ -9,6 +10,7 @@ interface TranscriptionEditorProps {
   onSubmit: () => void;
   onReRecord: () => void;
   isSubmitting?: boolean;
+  storyId?: string;
   className?: string;
 }
 
@@ -19,6 +21,7 @@ export function TranscriptionEditor({
   onSubmit,
   onReRecord,
   isSubmitting = false,
+  storyId,
   className = '',
 }: TranscriptionEditorProps) {
   const [content, setContent] = useState(transcribedText);
@@ -98,6 +101,11 @@ export function TranscriptionEditor({
             </span>
           )}
         </div>
+      </div>
+
+      {/* Photo upload section */}
+      <div className="border-t-2 border-gray-100 pt-6">
+        <PhotoSection storyId={storyId} />
       </div>
 
       {/* Action buttons */}
