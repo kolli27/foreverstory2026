@@ -1,7 +1,6 @@
 import { requireAuth } from '@/lib/auth/get-session';
 import { QuestionDisplay } from '@/components/story/question-display';
-import { WritingModeSelector } from '@/components/story/writing-mode-selector';
-import { TextEditor } from '@/components/story/text-editor';
+import { StoryInput } from '@/components/story/story-input';
 
 export default async function WritePage() {
   const user = await requireAuth();
@@ -29,11 +28,8 @@ export default async function WritePage() {
       {/* Question display */}
       <QuestionDisplay question={currentQuestion} />
 
-      {/* Writing mode selector (Text/Voice toggle) */}
-      <WritingModeSelector />
-
-      {/* Text editor (Phase 1 only shows text input) */}
-      <TextEditor questionId={currentQuestion.id} userId={user.id} />
+      {/* Story input (Text or Voice mode) - Phase 2 includes voice recording */}
+      <StoryInput questionId={currentQuestion.id} userId={user.id} />
     </div>
   );
 }

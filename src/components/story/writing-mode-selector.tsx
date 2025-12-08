@@ -1,17 +1,18 @@
 'use client';
 
-import { useState } from 'react';
+export type WritingMode = 'text' | 'voice';
 
-type WritingMode = 'text' | 'voice';
+interface WritingModeSelectorProps {
+  mode: WritingMode;
+  onModeChange: (mode: WritingMode) => void;
+}
 
-export function WritingModeSelector() {
-  const [mode, setMode] = useState<WritingMode>('text');
-
+export function WritingModeSelector({ mode, onModeChange }: WritingModeSelectorProps) {
   return (
     <div className="flex flex-col sm:flex-row gap-4">
       {/* Text mode button */}
       <button
-        onClick={() => setMode('text')}
+        onClick={() => onModeChange('text')}
         className={`
           flex-1 flex items-center justify-center gap-3 px-8 py-6 rounded-lg border-2 transition-all
           ${
@@ -38,16 +39,18 @@ export function WritingModeSelector() {
         <span className="text-lg font-medium">Text eingeben</span>
       </button>
 
-      {/* Voice mode button - Disabled in Phase 1 */}
+      {/* Voice mode button - Now enabled in Phase 2 */}
       <button
-        onClick={() => setMode('voice')}
-        disabled
-        className="
-          flex-1 flex items-center justify-center gap-3 px-8 py-6 rounded-lg border-2
-          border-gray-200 bg-gray-50 text-gray-400 cursor-not-allowed
-        "
+        onClick={() => onModeChange('voice')}
+        className={`
+          flex-1 flex items-center justify-center gap-3 px-8 py-6 rounded-lg border-2 transition-all
+          ${
+            mode === 'voice'
+              ? 'border-blue-600 bg-blue-50 text-blue-700'
+              : 'border-gray-300 bg-white text-gray-700 hover:border-gray-400'
+          }
+        `}
         aria-pressed={mode === 'voice'}
-        aria-disabled="true"
       >
         <svg
           className="w-6 h-6"
@@ -63,7 +66,6 @@ export function WritingModeSelector() {
           />
         </svg>
         <span className="text-lg font-medium">Aufnehmen</span>
-        <span className="text-sm">(bald verfügbar)</span>
       </button>
     </div>
   );
