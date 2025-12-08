@@ -3,9 +3,13 @@
  * Handles route protection and authentication at the edge
  */
 
-import { auth } from '@/auth';
+import NextAuth from 'next-auth';
+import { authConfigEdge } from '@/auth.config.edge';
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
+
+// Create edge-compatible auth instance (no Node.js dependencies)
+const { auth } = NextAuth(authConfigEdge);
 
 // ============================================
 // Route Configuration
