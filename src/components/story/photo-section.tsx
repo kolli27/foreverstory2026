@@ -34,7 +34,11 @@ export function PhotoSection({ storyId, className = '' }: PhotoSectionProps) {
 
       {/* Error message */}
       {error && (
-        <div className="p-4 bg-red-50 border-2 border-red-200 rounded-lg" role="alert">
+        <div
+          className="p-4 bg-red-50 border-2 border-red-200 rounded-lg"
+          role="alert"
+          aria-live="assertive"
+        >
           <p className="text-base text-red-800">{error}</p>
         </div>
       )}

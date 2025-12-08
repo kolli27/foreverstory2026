@@ -34,9 +34,17 @@ export function PhotoGrid({
             {/* Thumbnail */}
             <div className="relative aspect-video bg-gray-100 rounded overflow-hidden">
               {photo.isUploading ? (
-                <div className="absolute inset-0 flex items-center justify-center">
+                <div
+                  className="absolute inset-0 flex items-center justify-center"
+                  role="status"
+                  aria-live="polite"
+                  aria-label="Foto wird hochgeladen"
+                >
                   <div className="text-center">
-                    <div className="w-12 h-12 border-4 border-gray-200 border-t-blue-600 rounded-full animate-spin mx-auto mb-2"></div>
+                    <div
+                      className="w-12 h-12 border-4 border-gray-200 border-t-blue-600 rounded-full animate-spin mx-auto mb-2"
+                      aria-hidden="true"
+                    ></div>
                     <p className="text-sm text-gray-600">Wird hochgeladen...</p>
                   </div>
                 </div>

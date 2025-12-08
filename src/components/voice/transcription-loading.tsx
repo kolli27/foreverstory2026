@@ -6,9 +6,14 @@ interface TranscriptionLoadingProps {
 
 export function TranscriptionLoading({ className = '' }: TranscriptionLoadingProps) {
   return (
-    <div className={`flex flex-col items-center justify-center space-y-6 py-12 ${className}`}>
+    <div
+      className={`flex flex-col items-center justify-center space-y-6 py-12 ${className}`}
+      role="status"
+      aria-live="polite"
+      aria-busy="true"
+    >
       {/* Animated spinner */}
-      <div className="relative">
+      <div className="relative" aria-hidden="true">
         <div className="w-16 h-16 border-4 border-gray-200 border-t-blue-600 rounded-full animate-spin"></div>
       </div>
 

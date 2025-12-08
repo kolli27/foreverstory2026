@@ -51,7 +51,11 @@ export function VoiceRecorder({
   if (error) {
     return (
       <div className={`space-y-6 ${className}`}>
-        <div className="p-6 bg-red-50 border-2 border-red-200 rounded-lg">
+        <div
+          className="p-6 bg-red-50 border-2 border-red-200 rounded-lg"
+          role="alert"
+          aria-live="assertive"
+        >
           <p className="text-lg text-red-800 mb-4">{error}</p>
           <button
             onClick={onSwitchToText}
@@ -68,7 +72,11 @@ export function VoiceRecorder({
   if (!isSupported) {
     return (
       <div className={`space-y-6 ${className}`}>
-        <div className="p-6 bg-yellow-50 border-2 border-yellow-200 rounded-lg">
+        <div
+          className="p-6 bg-yellow-50 border-2 border-yellow-200 rounded-lg"
+          role="alert"
+          aria-live="polite"
+        >
           <p className="text-lg text-yellow-800 mb-4">
             Ihr Browser unterstützt leider keine Audioaufnahme. Bitte verwenden Sie einen modernen Browser wie Chrome, Firefox oder Safari.
           </p>

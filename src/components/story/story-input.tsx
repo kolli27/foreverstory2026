@@ -198,7 +198,11 @@ export function StoryInput({
 
           {voiceState === 'error' && (
             <div className="space-y-6">
-              <div className="p-6 bg-red-50 border-2 border-red-200 rounded-lg">
+              <div
+                className="p-6 bg-red-50 border-2 border-red-200 rounded-lg"
+                role="alert"
+                aria-live="assertive"
+              >
                 <p className="text-lg text-red-800 mb-4">{errorMessage}</p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <button
