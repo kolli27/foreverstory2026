@@ -24,6 +24,12 @@ export default async function DashboardLayout({
             {/* Navigation */}
             <nav className="hidden md:flex space-x-8">
               <Link
+                href="/dashboard"
+                className="text-gray-700 hover:text-blue-600 px-3 py-2 text-base font-medium transition-colors"
+              >
+                Dashboard
+              </Link>
+              <Link
                 href="/write"
                 className="text-gray-700 hover:text-blue-600 px-3 py-2 text-base font-medium transition-colors"
               >
